@@ -12,7 +12,8 @@ export class ButtonAddComponent{
   @Input()
   contador: number = 0;
 
-  @Output() onAdd: EventEmitter<number> = new EventEmitter();
+  @Output() 
+  onAdd: EventEmitter<number> = new EventEmitter();
 
   add(){
     this.contador++;

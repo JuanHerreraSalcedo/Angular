@@ -22,4 +22,21 @@ describe('ButtonAddComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it("debe emitir el valor de 1", () =>{
+    // console.log(component.contador)
+    
+    let nuevoContador = 0
+
+    
+    component.onAdd.subscribe( contador =>{
+
+      nuevoContador = contador
+    } )
+
+    component.add();
+
+    expect(nuevoContador).toBe(1)
+  })
 });
