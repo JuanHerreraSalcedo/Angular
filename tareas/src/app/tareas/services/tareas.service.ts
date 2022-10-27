@@ -26,4 +26,15 @@ export class TareasService{
     // this.tareas.pop();
     this.tareas = this.tareas.filter(tarea => tarea.tarea !== nombreTarea)
   }
+
+  completeTarea(nombreTarea: string){
+
+    const tarea: Tarea = this.tareas.find((tarea) => {
+      return tarea.tarea === nombreTarea;
+    })!
+
+    tarea.completada = !tarea.completada;
+
+    // console.log(tarea);
+  }
 }
