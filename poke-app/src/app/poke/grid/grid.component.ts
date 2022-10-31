@@ -10,14 +10,34 @@ export class GridComponent {
 
   pokeList: Array<any> = [];
 
-  constructor(private pokeService: PokeService) { 
-    pokeService.getList().subscribe((res:any)=>{
+   page: number = 0;
 
+  constructor(private pokeService: PokeService) {
+    this.setData() 
+    // pokeService.getList().subscribe((res:any)=>{
+
+    //   this.pokeList = res.results;
+    //   // console.log(res);
+    // })
+  }
+
+  setData(){
+    this.pokeService.getList(this.page).subscribe((res:any)=>{
       this.pokeList = res.results;
-      // console.log(res);
     })
   }
 
+  nextPage(){
+    this.page += 9
 
+    this.setData()
+  }
 
+  prevPage(){
+    this.page -= 9
+    // this.pokeService.getList(this.page).subscribe((res:any)=>{
+    //   this.pokeList = res.results;
+    // })
+    this.setData()
+  }
 }
