@@ -1,0 +1,9 @@
+<ol>
+    <li *ngFor="let fruta of frutas | slice: 1:5"> <!--el slice siempre marcara error ya que necesitara de manera forzada por que necesita un inicio y un final-->
+        {{fruta}}
+    </li>
+</ol>
+
+<p>
+    Letras: {{ letras | slice:2:4}}
+</p>
