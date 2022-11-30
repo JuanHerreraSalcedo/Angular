@@ -13,6 +13,12 @@ export class AppComponent {
   img = 'https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1b6543cefd5b666e/6339051ee3c2a2741688cbab/DVA_MICROMISSILES.jpg';
   btnDisabled = true;
 
+  register = {
+    name: '',
+    email: '',
+    password: '',
+  }
+
   Person = {
     name: 'Juan',
   age : 22,
@@ -21,6 +27,11 @@ export class AppComponent {
 
   names : string[] = ['Juan', 'Camilo', 'Pablo']
   newName = '';
+  box = {
+    width: 100,
+    height: 100,
+    background: '#c32'
+  };
 
   products : Product[] = [
     {
@@ -79,5 +90,9 @@ export class AppComponent {
 
   remove(index: number) {
     this.names.splice(index, 1);
+  }
+
+  onRegister() {
+    console.log(this.register);
   }
 }
