@@ -1,6 +1,6 @@
-<img width="200" (load)="imgLoaded()" [src]="img" *ngIf="img; else elseImg">
+<img (load)="imgLoaded()" [src]="img" *ngIf="img; else elseImg">
 <!-- <img width="200" (error)="imgError()" [src]="img" *ngIf="img; else elseImg"> error al cargar una imagen -->
-<h3>{{ counter }}</h3>
+<!-- <h3>{{ counter }}</h3> -->
 
 <ng-template #elseImg>
     <img [src]="imageDefault" alt="">
