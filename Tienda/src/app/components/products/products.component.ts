@@ -51,6 +51,9 @@ export class ProductsComponent implements OnInit {
 
   ];
 
+  today = new Date();
+  date = new Date(2021, 8, 8)
+
   constructor( 
     private storeService: StoreService,
     private productService: ProductsService,
