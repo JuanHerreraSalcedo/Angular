@@ -30,4 +30,8 @@ export class ProductsService {
     // put deberia enviar toda la informacion del producto
     // patch para hacer la edicion de un atributo en particular
   }
+  
+  delete(id: string ){
+    return this.http.get<boolean>(`${this.apiUrl}/${id}`)
+  }
 }
