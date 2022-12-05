@@ -8,7 +8,7 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
+  slidesPerview = 1;
   myShoppingCart: Product[] = [];
   total = 0;
   products: Product[] = [
@@ -51,6 +51,19 @@ export class ProductsComponent implements OnInit {
 
   ];
 
+  showProductDetail = false;
+  productChosen: Product = {
+    id: '',
+    price: 0,
+    images: [],
+    title: '',
+    category: {
+      id: '',
+      name: '',
+    },
+    description: '',
+  }
+
   today = new Date();
   date = new Date(2021, 8, 8)
 
@@ -76,5 +89,19 @@ export class ProductsComponent implements OnInit {
     // this.total = this.myShoppingCart.reduce((sum, item) => sum + item.price, 0);
     this.total = this.storeService.getTotal();
       console.log(product);
+  }
+
+  toggleProductDetail(){
+    this.showProductDetail = !this.showProductDetail;
+  }
+
+  onShowDetail(id: string){
+    // console.log('id')
+    this.productService.getProduct(id)
+    .subscribe(data => {
+      this.toggleProductDetail();
+      // console.log('product', data); 
+      this.productChosen = data;
+    })
   }
 }
