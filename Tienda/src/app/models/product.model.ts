@@ -13,3 +13,10 @@ export interface Product{
 export interface createProductDTO extends Omit<Product, 'id' | 'category'>{
     categoryId: number;
 }
+export interface UpdateProductDTO extends Partial<createProductDTO> {
+    // title: string; // es para colocar algo opcional
+    // price: number; //Partial<> le añade el ? a todos los datos para que sean opcionales
+    // images: string[];
+    // description: string;
+    // categoryId: number;
+}
