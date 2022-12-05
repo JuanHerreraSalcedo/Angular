@@ -133,4 +133,12 @@ export class ProductsComponent implements OnInit {
       this.products[productIndex] = data;
     });
   }
+
+  deleteProduct() {
+    const id = this.productChosen.id;
+    this.productService.delete(id)
+    .subscribe(data => {
+      const productIndex = this.products.findIndex(item => item.id === this.productChosen.id)
+    });
+  }
 }
