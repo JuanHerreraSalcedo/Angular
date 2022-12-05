@@ -6,11 +6,11 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
   styleUrls: ['./img.component.scss']
 })
 export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
-  img: string = '';
-  @Input('img')
+  image: string = '';
+  @Input('image')
   set changeImg(newImg: string) {
-    this.img = newImg;
-    console.log('change just img =>',  this.img)
+    this.image = newImg;
+    console.log('change just img =>',  this.image)
     //al tenerlo como un metodo ya puedo aplicar codigo
   } 
   @Output()  loaded = new EventEmitter<string>();
@@ -21,13 +21,13 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   constructor() {
     //esto se corre antes del render
     //no correr cosas async -- solo se corre una sola vez
-    console.log('constructor', 'imgValue =>', this.img);
+    console.log('constructor', 'imgValue =>', this.image);
    }
 
   ngOnChanges(changes: SimpleChanges) {
     //esto corre antes y durante del render
     //Su objetivo como tal es estar actualizando los cambios en los inputs -- corre muchas veces al actualizar el valor
-    console.log('ngOnChanges', 'imgValue =>', this.img);
+    console.log('ngOnChanges', 'imgValue =>', this.image);
     console.log('changes',changes);
     // if (changes.){
 
@@ -57,11 +57,11 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // window.clearInterval(this.counterFn);
   }
   imgError(){
-    this.img = this.imageDefault;
+    this.image = this.imageDefault;
   }
 
   imgLoaded(){
     console.log('log hijo');
-    this.loaded.emit(this.img);
+    this.loaded.emit(this.image);
   }
 }

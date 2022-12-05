@@ -12,7 +12,9 @@ export class ProductComponent implements OnInit {
     id: '',
     price: 0,
     img: '',
-    name: '',
+    title: '',
+    category: '',
+    description: '',
    }
 
    @Output() addedProduct = new EventEmitter <Product>();
